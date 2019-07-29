@@ -1,9 +1,10 @@
 class Account
 
-  attr_reader :balance
+  attr_reader :balance, :record
 
   def initialize(balance=Balance.new)
     @balance = balance
+    @record = []
   end
 
   def deposit(amount, date_as_string)
