@@ -10,10 +10,21 @@ RSpec.describe Account do
       @account = Account.new
       expect(@account.balance).to be_an_instance_of(Balance)
     end
+    it "contains an empty record array" do
+      @account = Account.new
+      expect(@account.record).to eq([])
+    end
   end
 
   describe "#deposit" do
-    it "runs deposit method on balance and stores a record" do
+
+    it "calls the deposit method on balance" do
+      @account = Account.new
+      @account.deposit(10.00, "10-01-2012")
+      expect(@account.balance.current_balance).to eq(10.00)
+    end
+
+    it "creates a record of the transaction" do
       @account = Account.new
       expected_record = {:type => :deposit, :amount => 10.00, :date => "10-01-2012", :new_balance => 10.00}
       expect(@account.deposit(10.00, "10-01-2012")).to eq(expected_record)
