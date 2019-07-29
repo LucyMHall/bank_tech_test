@@ -5,5 +5,11 @@ class Balance
   def initialize
     @current_balance = 0.00
   end
+
+  def deposit(amount)
+    @current_balance += amount
+  end
+
   
+
 end

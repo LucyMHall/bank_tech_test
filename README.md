@@ -21,12 +21,12 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
-## Breaking down requirements
-- a balance needs to exist
-- a balance is initialised at zero
+## Breaking down requirements (changing balance, storing changes, displaying changes)
+- a balance needs to exist [DONE]
+- a balance is initialised at zero [DONE]
 - deposits need to have an amount(to 2dp) and date attached to them
 - withdrawals need to have an amount(to 2dp) and date attached to them
-- a deposit increases the balance
+- a deposit increases the balance [DONE]
 - a withdrawal decreases the balance
 - a record is kept of all deposits, withdrawals, the date they happen and the effect on the balance
 - the record is displayed, with newest actions printed first

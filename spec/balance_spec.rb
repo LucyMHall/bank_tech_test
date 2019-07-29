@@ -6,8 +6,17 @@ RSpec.describe Balance do
     @balance = Balance.new
   end
 
-  it 'initializes at 0.00' do
-    expect(@balance.current_balance).to eq(0.00)
+  describe "#initialize" do
+    it 'initializes at 0.00' do
+      expect(@balance.current_balance).to eq(0.00)
+    end
+  end
+
+  describe "#deposit" do
+    it 'increases the balance by the amount specifed' do
+      @balance.deposit(10.00)
+      expect(@balance.current_balance).to eq(10.00)
+    end
   end
 
 end
