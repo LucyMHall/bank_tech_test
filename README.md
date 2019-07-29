@@ -27,7 +27,7 @@ date || credit || debit || balance
 - deposits need to have an amount(to 2dp) and date attached to them
 - withdrawals need to have an amount(to 2dp) and date attached to them
 - a deposit increases the balance [DONE]
-- a withdrawal decreases the balance
+- a withdrawal decreases the balance [DONE]
 - a record is kept of all deposits, withdrawals, the date they happen and the effect on the balance
 - the record is displayed, with newest actions printed first
 
