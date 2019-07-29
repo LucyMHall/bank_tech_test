@@ -24,18 +24,26 @@ RSpec.describe Account do
       expect(@account.balance.current_balance).to eq(10.00)
     end
 
-    it "creates a record of the transaction" do
+    it "stores a record of the transaction in the account's record property" do
       @account = Account.new
+      @account.deposit(10.00, "10-01-2012")
       expected_record = {:type => :deposit, :amount => 10.00, :date => "10-01-2012", :new_balance => 10.00}
-      expect(@account.deposit(10.00, "10-01-2012")).to eq(expected_record)
+      expect(@account.record).to include(expected_record)
     end
   end
 
   describe "#withdraw" do
-    it "runs withdraw method on balance and stores a record" do
+    it "calls the deposit method on balance" do
       @account = Account.new
+      @account.withdraw(10.00, "10-01-2012")
+      expect(@account.balance.current_balance).to eq(-10.00)
+    end
+
+    it "stores a record of the transaction in the account's record property" do
+      @account = Account.new
+      @account.withdraw(10.00, "10-01-2012")
       expected_record = {:type => :withdraw, :amount => 10.00, :date => "10-01-2012", :new_balance => -10.00}
-      expect(@account.withdraw(10.00, "10-01-2012")).to eq(expected_record)
+      expect(@account.record).to include(expected_record)
     end
   end
 

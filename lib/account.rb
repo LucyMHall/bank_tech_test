@@ -9,12 +9,14 @@ class Account
 
   def deposit(amount, date_as_string)
     @balance.deposit(amount)
-    create_record(:deposit, amount, date_as_string)
+    created_record = create_record(:deposit, amount, date_as_string)
+    store_record(created_record)
   end
 
   def withdraw(amount, date_as_string)
     @balance.withdraw(amount)
-    create_record(:withdraw, amount, date_as_string)
+    created_record = create_record(:withdraw, amount, date_as_string)
+    store_record(created_record)
   end
 
   private
@@ -25,6 +27,10 @@ class Account
       :date => date_as_string,
       :new_balance => @balance.current_balance
     }
+  end
+
+  def store_record(record)
+    @record << record
   end
 
 end
