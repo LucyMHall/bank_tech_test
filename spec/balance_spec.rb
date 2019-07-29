@@ -19,4 +19,11 @@ RSpec.describe Balance do
     end
   end
 
+  describe "#withdraw" do
+    it 'decreases the balance by the amount specifed' do
+      @balance.withdraw(10.00)
+      expect(@balance.current_balance).to eq(-10.00)
+    end
+  end
+
 end

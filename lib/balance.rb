@@ -10,6 +10,8 @@ class Balance
     @current_balance += amount
   end
 
-  
+  def withdraw(amount)
+    @current_balance -= amount
+  end
 
 end
