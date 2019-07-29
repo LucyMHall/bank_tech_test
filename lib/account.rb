@@ -8,17 +8,17 @@ class Account
 
   def deposit(amount, date_as_string)
     @balance.deposit(amount)
-    store_record(:deposit, amount, date_as_string)
+    create_record(:deposit, amount, date_as_string)
   end
 
   def withdraw(amount, date_as_string)
     @balance.withdraw(amount)
-    store_record(:withdraw, amount, date_as_string)
+    create_record(:withdraw, amount, date_as_string)
   end
 
   private
 
-  def store_record(type, amount, date_as_string)
+  def create_record(type, amount, date_as_string)
     { :type => type,
       :amount => amount,
       :date => date_as_string,
