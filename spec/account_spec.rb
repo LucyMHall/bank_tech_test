@@ -44,4 +44,14 @@ RSpec.describe Account do
 
   end
 
+  describe "#record" do
+
+    it "can store multiple records" do
+      @account.withdraw(10.00, "10-01-2012")
+      @account.deposit(10.00, "10-01-2012")
+      expect(@account.record.length).to eq(2)
+    end
+
+  end
+
 end

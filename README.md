@@ -50,5 +50,6 @@ date || credit || debit || balance
 - Although this will mean storing data over time rather than when required, changes need to happen to the balance independently from whether they need to be displayed - not only because this most accurately represents what happens in real life but that it will allow other potential future features such as not allowing the withdrawal of money if it would drop the balance below zero, or being able to see only the current balance without the detail to be implemented more easily.
 
 ## Classes and Their Functionality
-- **Balance**: with #withdraw(minus amount from balance), #deposit(add amount to balance), #current_balance(displays current balance)
+- **Balance**: #withdraw(minus amount from balance), #deposit(add amount to balance), #current_balance(displays current balance)
+- **Account**:
 - **Bank_Statement**: #display(handles view logic), #save_transaction(stores details), #return(returns raw data)
