@@ -24,11 +24,11 @@ date || credit || debit || balance
 ## Breaking down requirements (changing balance, storing changes, displaying changes)
 - a balance needs to exist [DONE]
 - a balance is initialised at zero [DONE]
-- deposits need to have an amount(to 2dp) and date attached to them
-- withdrawals need to have an amount(to 2dp) and date attached to them
+- deposits need to have an amount(to 2dp) and date attached to them [DONE]
+- withdrawals need to have an amount(to 2dp) and date attached to them [DONE]
 - a deposit increases the balance [DONE]
 - a withdrawal decreases the balance [DONE]
-- a record is kept of all deposits, withdrawals, the date they happen and the effect on the balance
+- a record is kept of all deposits, withdrawals, the date they happen and the effect on the balance [DONE]
 - the record is displayed, with newest actions printed first
 
 ## Design decisions
