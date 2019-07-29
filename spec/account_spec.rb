@@ -20,4 +20,12 @@ RSpec.describe Account do
     end
   end
 
+  describe "#withdraw" do
+    it "runs withdraw method on balance and stores a record" do
+      @account = Account.new
+      expected_record = {:type => :withdraw, :amount => 10.00, :date => "10-01-2012", :new_balance => -10.00}
+      expect(@account.withdraw(10.00, "10-01-2012")).to eq(expected_record)
+    end
+  end
+
 end

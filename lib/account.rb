@@ -11,6 +11,11 @@ class Account
     store_record(:deposit, amount, date_as_string)
   end
 
+  def withdraw(amount, date_as_string)
+    @balance.withdraw(amount)
+    store_record(:withdraw, amount, date_as_string)
+  end
+
   private
 
   def store_record(type, amount, date_as_string)
