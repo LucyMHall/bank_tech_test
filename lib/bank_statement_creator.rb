@@ -14,7 +14,7 @@ class BankStatementCreator
   def format(transaction)
     if transaction[:type] == :withdraw
       "#{transaction[:date]} || || #{transaction[:amount]}0 || #{transaction[:new_balance]}0 \n "
-    else
+    elsif transaction[:type] == :deposit
      "#{transaction[:date]} || #{transaction[:amount]}0 || || #{transaction[:new_balance]}0 \n "
     end
   end
