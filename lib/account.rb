@@ -1,8 +1,9 @@
-class Account
+# frozen_string_literal: true
 
+class Account
   attr_reader :balance, :record
 
-  def initialize(bank_statement_creator=BankStatementCreator.new, balance=Balance.new)
+  def initialize(bank_statement_creator = BankStatementCreator.new, balance = Balance.new)
     @balance = balance
     @record = []
     @bank_statement_creator = bank_statement_creator
@@ -27,15 +28,13 @@ class Account
   private
 
   def create_record(type, amount, date_as_string)
-    { :type => type,
-      :amount => amount,
-      :date => date_as_string,
-      :new_balance => @balance.current_balance
-    }
+    { type: type,
+      amount: amount,
+      date: date_as_string,
+      new_balance: @balance.current_balance }
   end
 
   def store_record(record)
     @record << record
   end
-
 end
