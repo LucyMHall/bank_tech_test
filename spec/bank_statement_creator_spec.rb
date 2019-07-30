@@ -23,6 +23,17 @@ RSpec.describe BankStatementCreator do
       expect{@bank_statement_creator.print_bank_statement(record)}.to output(expected_display).to_stdout
     end
 
+    it "displays the headers and multiple records when given more than 1 transaction" do
+      @bank_statement_creator = BankStatementCreator.new
+      record = [
+        {:type => :deposit, :amount => 10.00, :date => "10-01-2012", :new_balance => 10.00},
+        {:type => :withdraw, :amount => 10.00, :date => "10-01-2012", :new_balance => 0.00}
+      ]
+      expected_display = "date || credit || debit || balance \n 10-01-2012 || 10.00 || || 10.00 \n 10-01-2012 || || 10.00 || 0.00 \n "
+      expect{@bank_statement_creator.print_bank_statement(record)}.to output(expected_display).to_stdout
+    end
+
+
   end
 
 end
