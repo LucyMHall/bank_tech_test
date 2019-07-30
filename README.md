@@ -56,7 +56,16 @@ date || credit || debit || balance
   - `$ require './lib/balance.rb'`
     - NOTE: you should get `=> true` if this file has been successfully required
 - Functionality:
-  -
+  ```
+  new_account = Account.new
+  new_account.deposit(15.13, "10-07-18")
+  new_account.withdraw(10.00, "11-07-19")
+  new_account.print_statement
+  =>
+    date || credit || debit || balance
+    11-07-19 || || 10.00 || 5.13
+    10-07-19 || 15.13 || || 15.13
+  ```
 ## Design decisions
 
 ### Single Responsibility (Withdrawals and Deposits)
