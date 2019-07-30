@@ -2,9 +2,10 @@ class Account
 
   attr_reader :balance, :record
 
-  def initialize(balance=Balance.new)
+  def initialize(bank_statement_creator=BankStatementCreator.new, balance=Balance.new)
     @balance = balance
     @record = []
+    @bank_statement_creator = bank_statement_creator
   end
 
   def deposit(amount, date_as_string)
@@ -18,6 +19,7 @@ class Account
     created_record = create_record(:withdraw, amount, date_as_string)
     store_record(created_record)
   end
+
 
   private
 

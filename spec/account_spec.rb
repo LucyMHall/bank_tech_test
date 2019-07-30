@@ -3,18 +3,11 @@ require 'account'
 RSpec.describe Account do
 
   before (:each) do
-    @account = Account.new
+    @mock_bsc = double("BankStatementCreator", print_bank_statement: "printing statement")
+    @account = Account.new(@mock_bsc)
     @deposit_ten_record = {:type => :deposit, :amount => 10.00, :date => "10-01-2012", :new_balance => 10.00}
     @withdraw_ten_record = {:type => :withdraw, :amount => 10.00, :date => "10-01-2012", :new_balance => -10.00}
-  end
 
-  describe "#initialize" do
-    it "contains an instance of the balance class" do
-      expect(@account.balance).to be_an_instance_of(Balance)
-    end
-    it "contains an empty record array" do
-      expect(@account.record).to eq([])
-    end
   end
 
   describe "#deposit" do
@@ -42,6 +35,13 @@ RSpec.describe Account do
       expect(@account.record).to include(@withdraw_ten_record)
     end
 
+  end
+
+  describe "#print_statement" do
+
+    it "calls the print_bank_statement on the @bank_statement_creator" do
+
+    end
   end
 
   describe "#record" do
