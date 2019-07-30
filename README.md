@@ -29,8 +29,34 @@ date || credit || debit || balance
 - a deposit increases the balance [DONE]
 - a withdrawal decreases the balance [DONE]
 - a record is kept of all deposits, withdrawals, the date they happen and the effect on the balance [DONE]
-- the record is displayed, with newest actions printed first
+- **the record is displayed, with newest actions printed first**
 
+## Classes and Their Functionality (public)
+- **Balance**:
+  - #withdraw(minus amount from balance),
+  - #deposit(add amount to balance),
+  - #current_balance(displays current balance)
+- **Account**:
+  - #deposit(calls #deposit method on balance, calls #created_record, calls #store_record),
+  - #withdraw(calls #withdraw method on balance, calls #created_record, calls #store_record),
+  - #print_statement(calls #print_bank_statement on bank_statement_creator)
+- **Bank_Statement**:
+  - #print_bank_statement(calls #print_header and #print_formatted_records)
+
+## Running Tests:
+- run `$ bundle install`
+- run `rspec` to get test coverage and status of all tests
+- run `rubocop lib` to see the code quality of the app
+
+## Running the App:
+- Setting up the environment in irb:
+  - `$ irb`
+  - `$ require './lib/bank_statement_creator.rb' `
+  - `$ require './lib/account.rb'`
+  - `$ require './lib/balance.rb'`
+    - NOTE: you should get `=> true` if this file has been successfully required
+- Functionality:
+  -
 ## Design decisions
 
 ### Single Responsibility (Withdrawals and Deposits)
@@ -47,9 +73,4 @@ date || credit || debit || balance
 
 ### Space Taken Storing Changing Balance V Time Taken Recalculating/Accuracy
 - The changes to the balance from withdrawals and deposits will take place at the time these actions happen rather than when the statement is asked for
-- Although this will mean storing data over time rather than when required, changes need to happen to the balance independently from whether they need to be displayed - not only because this most accurately represents what happens in real life but that it will allow other potential future features such as not allowing the withdrawal of money if it would drop the balance below zero, or being able to see only the current balance without the detail to be implemented more easily.
-
-## Classes and Their Functionality
-- **Balance**: #withdraw(minus amount from balance), #deposit(add amount to balance), #current_balance(displays current balance)
-- **Account**:
-- **Bank_Statement**: #display(handles view logic), #save_transaction(stores details), #return(returns raw data)
+- Although this will mean storing data over time(in the Account class) rather than when required, changes need to happen to the balance independently from whether they need to be displayed - not only because this most accurately represents what happens in real life but that it will allow other potential future features such as not allowing the withdrawal of money if it would drop the balance below zero, or being able to see only the current balance without the detail to be implemented more easily.
