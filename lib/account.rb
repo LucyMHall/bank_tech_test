@@ -13,12 +13,14 @@ class Account
     @balance.deposit(amount)
     created_record = create_record(:deposit, amount, date_as_string)
     store_record(created_record)
+    return @record
   end
 
   def withdraw(amount, date_as_string)
     @balance.withdraw(amount)
     created_record = create_record(:withdraw, amount, date_as_string)
     store_record(created_record)
+    return @record
   end
 
   def print_statement
