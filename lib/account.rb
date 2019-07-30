@@ -20,6 +20,9 @@ class Account
     store_record(created_record)
   end
 
+  def print_statement
+    @bank_statement_creator.print_bank_statement(@record)
+  end
 
   private
 

@@ -40,7 +40,7 @@ RSpec.describe Account do
   describe "#print_statement" do
 
     it "calls the print_bank_statement on the @bank_statement_creator" do
-
+      expect(@account.print_statement).to eq("printing statement")
     end
   end
 
