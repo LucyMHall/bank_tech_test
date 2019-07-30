@@ -15,15 +15,13 @@ RSpec.describe Balance do
 
   describe '#deposit' do
     it 'increases the balance by the amount specifed' do
-      @balance.deposit(10.00)
-      expect(@balance.current_balance).to eq(10.00)
+      expect{@balance.deposit(10.00)}.to change{@balance.current_balance}.by(10.00)
     end
   end
 
   describe '#withdraw' do
     it 'decreases the balance by the amount specifed' do
-      @balance.withdraw(10.00)
-      expect(@balance.current_balance).to eq(-10.00)
+      expect{@balance.withdraw(10.00)}.to change{@balance.current_balance}.by(-10.00)
     end
   end
 end
