@@ -9,7 +9,7 @@ RSpec.describe Account do
   end
 
   describe "#initialize" do
-    it "contains a instance of the balance class" do
+    it "contains an instance of the balance class" do
       expect(@account.balance).to be_an_instance_of(Balance)
     end
     it "contains an empty record array" do
