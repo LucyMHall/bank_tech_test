@@ -2,7 +2,7 @@ class BankStatementCreator
 
   def print_bank_statement(record)
     print_header
-    print record.map{|transaction| format(transaction)}.join
+    print_formatted_records(record)
   end
 
   private
@@ -17,6 +17,10 @@ class BankStatementCreator
     else
      "#{transaction[:date]} || #{transaction[:amount]}0 || || #{transaction[:new_balance]}0 \n "
     end
+  end
+
+  def print_formatted_records(record)
+    print record.map{|transaction| format(transaction)}.join
   end
 
 end
