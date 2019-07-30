@@ -29,7 +29,7 @@ date || credit || debit || balance
 - a deposit increases the balance [DONE]
 - a withdrawal decreases the balance [DONE]
 - a record is kept of all deposits, withdrawals, the date they happen and the effect on the balance [DONE]
-- **the record is displayed, with newest actions printed first**
+- the record is displayed, with newest actions printed first [DONE]
 
 ## Classes and Their Functionality (public)
 - **Balance**:
