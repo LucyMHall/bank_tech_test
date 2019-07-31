@@ -12,6 +12,10 @@ class Balance
   end
 
   def withdraw(amount)
-    @current_balance -= amount
+    if amount > @current_balance
+      raise "You do not have sufficient funds"
+    else
+      @current_balance -= amount
+    end
   end
 end
