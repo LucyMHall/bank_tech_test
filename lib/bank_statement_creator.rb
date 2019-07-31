@@ -22,5 +22,6 @@ class BankStatementCreator
 
   def print_formatted_records(record)
     print record.reverse.map { |transaction| format(transaction) }.join
+
   end
 end
