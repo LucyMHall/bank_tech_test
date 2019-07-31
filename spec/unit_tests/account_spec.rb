@@ -5,18 +5,10 @@ require 'account'
 RSpec.describe Account do
   before (:each) do
     @mock_bsc = double('BankStatementCreator', print_bank_statement: 'printing statement')
-
-
-    @mock_balance = double('Balance', deposit: "#deposit called", withdraw: "withdraw called", current_balance: 0)
-
-
-    @account = Account.new(@mock_bsc)
-
-
-    @expected_deposit_ten_record = [{ type: :deposit, amount: 10.00, date: '10-01-2012', new_balance: 10.00 }]
-
-
-    @expected_withdraw_ten_record = [{ type: :withdraw, amount: 10.00, date: '10-01-2012', new_balance: -10.00 }]
+    @mock_balance = double('Balance', deposit: "#deposit called", withdraw: "withdraw called", current_balance: "£££")
+    @account = Account.new(@mock_bsc, @mock_balance)
+    @expected_deposit_ten_record = [{ type: :deposit, amount: 10.00, date: '10-01-2012', new_balance: "£££" }]
+    @expected_withdraw_ten_record = [{ type: :withdraw, amount: 10.00, date: '10-01-2012', new_balance: "£££" }]
   end
 
   describe '#deposit' do
